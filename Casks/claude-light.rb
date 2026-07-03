@@ -1,10 +1,11 @@
-# This cask is mirrored to the tap repo fr1j0/homebrew-claude-light at Casks/claude-light.rb.
-# On each release: bump `version` and `sha256` (copy the value from the release's
-# claude-light.zip.sha256 file).
+# TEMPLATE — do not hand-bump; version/sha256 below are placeholders.
+# On every release, release.yml renders this file with the real values
+# (scripts/render-cask.sh) and pushes it to the tap repo
+# fr1j0/homebrew-claude-light — which is what `brew install` reads.
 
 cask "claude-light" do
-  version "0.9.0"
-  sha256 "3db37bbb3309af3f2567db7ae7f4dde76b1aa6336f59416d5b69e31480748f33"
+  version "0.10.0"
+  sha256 "187f033a5914c8220f91d2c0a778ada121d35b4656892f8a9cde7398be6c577b"
 
   url "https://github.com/fr1j0/claude-light/releases/download/v#{version}/claude-light.zip"
   name "Claude Light"
