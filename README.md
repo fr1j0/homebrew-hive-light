@@ -6,17 +6,34 @@ Homebrew tap for [Claude Light](https://github.com/fr1j0/claude-light) — a nat
 
 ```sh
 brew tap fr1j0/claude-light
+brew trust fr1j0/claude-light   # newer Homebrew requires trusting third-party taps
 brew install --cask claude-light
 ```
 
 Then launch Claude Light and choose **Install Claude Code hooks** from the menu (or accept the first-run prompt) to wire it into `~/.claude/settings.json`.
 
-> **Note:** This tap is published, but the cask is pending the first tagged release of Claude Light. Until `v0.1.0` is released (notarized `.app` + checksum), `brew install --cask claude-light` will not resolve. The `sha256` in `Casks/claude-light.rb` is a placeholder that gets filled from the release's `claude-light.zip.sha256` on each version bump.
+> **Note — unsigned interim builds:** releases are currently ad-hoc signed while Apple notarization for the team is pending, so on first launch Gatekeeper may report the app as *"damaged and can't be opened"*. Clear the quarantine flag and launch again:
+>
+> ```sh
+> xattr -dr com.apple.quarantine "/Applications/Claude Light.app"
+> ```
+>
+> Signed & notarized releases will remove this step once notarization is enabled.
+
+## Update
+
+```sh
+brew upgrade --cask claude-light
+```
+
+There is no auto-update or in-app update check — updates only arrive through Homebrew (or by downloading a newer release manually).
 
 ## Updating the cask per release
 
-On each release of `fr1j0/claude-light`:
+On each release of `fr1j0/claude-light`, run [`scripts/bump-cask.sh`](https://github.com/fr1j0/claude-light/blob/main/scripts/bump-cask.sh) from that repo with a checkout of this tap:
 
-1. Bump `version` in `Casks/claude-light.rb`.
-2. Replace `sha256` with the value from that release's `claude-light.zip.sha256`.
-3. Commit and push.
+```sh
+scripts/bump-cask.sh <version> --tap /path/to/homebrew-claude-light
+```
+
+It downloads the release zip, **verifies** its sha256 against the published checksum, and rewrites `version` + `sha256` in both casks. Then commit and open a PR in each repo.
