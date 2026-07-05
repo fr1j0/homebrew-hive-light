@@ -2,8 +2,8 @@
 # Source template: fr1j0/claude-light Casks/claude-light.rb
 
 cask "claude-light" do
-  version "0.15.0"
-  sha256 "e48da2989f621fd3c1cfe01037c37ad30ce9491f935a6662571733b6315a63c0"
+  version "0.16.0"
+  sha256 "8fea4c4b4a60a7baef5ecc3b9c662174f4e79a4b7b430b3059c3342e0e3874ef"
 
   url "https://github.com/fr1j0/claude-light/releases/download/v#{version}/claude-light.zip"
   name "Claude Light"
