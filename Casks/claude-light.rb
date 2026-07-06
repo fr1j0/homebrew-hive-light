@@ -10,9 +10,9 @@ cask "claude-light" do
   desc "Menu-bar status light for Claude Code sessions"
   homepage "https://github.com/fr1j0/claude-light"
 
-  depends_on macos: :ventura
+  deprecate! date: "2026-07-06", because: "was renamed to hive-light"
 
-  deprecate! date: "2026-07-06", because: "it was renamed to hive-light"
+  depends_on macos: :ventura
 
   app "Claude Light.app"
 
