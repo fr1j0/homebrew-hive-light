@@ -21,4 +21,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: brew style
-        run: brew style Casks/claude-light.rb
+        run: brew style Casks/
