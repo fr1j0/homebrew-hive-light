@@ -2,8 +2,8 @@
 # Source template: fr1j0/hive-light Casks/hive-light.rb
 
 cask "hive-light" do
-  version "0.21.0"
-  sha256 "790e1891b04919c4e8ba84e90bd51d568cb99890faff7fca94cb62e1d2f59935"
+  version "0.22.0"
+  sha256 "c98cad242e63a51a11b1362d6b0b60684b65e61fb5c628a5edf2912d65dc4915"
 
   url "https://github.com/fr1j0/hive-light/releases/download/v#{version}/hive-light.zip"
   name "Hive Light"
